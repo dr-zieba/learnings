@@ -1,0 +1,6 @@
+cd Desktop\django
+.\Scripts\activate
+
+
+django-admin startproject ecommerce .
+in src -> python manage.py runserver 8888

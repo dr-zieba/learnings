@@ -1,0 +1,43 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+<div class="container coins">
+    <a href="{{url_for('main.add')}}">Add new coin</a>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>My value</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set total=[0] %}
+        {% for coin in coins %}
+        <tr>
+            <th>{{ coin.symbol }}</th>
+            <td>{{ coin.amount }}</td>
+            <td>{{ coin.call_price()[0] }}</td>
+            <td>{{ coin.call_price()[1] }}</td>
+            <td>
+                <a href="{{ url_for('main.coin_details', symbol=coin.symbol) }}">Details</a>
+                {% if total.append(total.pop() + coin.call_price()[1]) %}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>Total:</td>
+            <td></td>
+            <td></td>
+            <td>
+                {{total|join('')}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <img src="https://alternative.me/crypto/fear-and-greed-index.png" alt="Latest Crypto Fear & Greed Index" />
+    {% endblock %}

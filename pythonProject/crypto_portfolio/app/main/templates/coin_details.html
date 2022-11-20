@@ -1,0 +1,79 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+
+
+<div class="container coins">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>My value</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set total=[0] %}
+        <tr>
+            <th>{{coin.symbol}}</th>
+            <td>{{coin.amount}}</td>
+            <td>{{coin.call_price()[0]}}</td>
+            <td>{{coin.call_price()[1]}}</td>
+            <th>
+                <form action="" method="post">
+                    {{ form_plus.hidden_tag() }}
+                    <div class="form-group">
+                        {{ form_plus.action}}
+                        {{ form_plus.amount }}
+                        {% if form_plus.amount.errors %}
+                        <ul class="errors">
+                            {% for error in form_plus.amount.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {{ form_plus.submit_p(class='btn btn-primary') }}
+                    </div>
+
+                </form>
+
+
+                <form action="" method="post">
+                    {{ form_minus.hidden_tag() }}
+                    <div class="form-group">
+                        {{ form_minus.action }}
+                        {{ form_minus.amount }}
+                        {% if form_minus.amount.errors %}
+                        <ul class="errors">
+                            {% for error in form_minus.amount.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {{ form_minus.submit_m(class='btn btn-primary') }}
+                    </div>
+                </form>
+                <a href="{{ url_for('main.delete', symbol=coin.symbol) }}" title="Delete"><img
+                        src="{{ url_for('static', filename='img/delete.png')}}"></a>
+            </th>
+            </td>
+            <td>
+                {% if total.append(total.pop() + coin.call_price()[1]) %}
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Total:</td>
+            <td></td>
+            <td></td>
+            <td>
+                {{total|join('')}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

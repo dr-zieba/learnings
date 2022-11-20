@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Tickets{% endblock %}
+
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>My value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- EXAMPLE ROW, substitue the real information from the tickets in the database -->
+  {% for coin in symbols %}
+  <tr>
+    <th>{{coin[0]}}</th>
+    <td>{{coin[1]}}</td>
+    <td>{{coin[2]}}</td>
+    <td>{{coin[3]}}</td>
+    <td>
+      <a href="{{url_for('show_details', symbol=coin[0])}}">Details</a>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

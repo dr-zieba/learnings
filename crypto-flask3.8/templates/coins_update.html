@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Tickets{% endblock %}
+
+{% block body %}
+<div class="content">
+  <p><strong>Name:</strong> {{ symbol.symbol }}</p>
+  <p><strong>Status:</strong> {{ symbol.amount }}</p>
+  <p><strong>URL:</strong> <a href="{{ symbol }}" target="_blank">{{ symbol }}</a></p>
+</div>
+
+<form action = "" method = "POST">
+         <label for = "amount">amount</label><br>
+         <input type = "number" name = "amount" placeholder = "amount" /><br>
+
+         <input type = "submit" value = "Submit" />
+      </form>
+{% endblock %}

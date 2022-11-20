@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}{{user}}{% endblock %}
+
+{% block body %}
+<a href="{{url_for('views.logout')}}">logout</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>My value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- EXAMPLE ROW, substitue the real information from the tickets in the database -->
+  {% set total=[0] %}
+  {% for coin in symbols %}
+  <tr>
+    <th>{{coin.symbol}}</th>
+    <td>{{coin.amount}}</td>
+    <td>{{coin.call_values()}}</td>
+    <td>{{coin.call_price()}}</td>
+    <td>
+      <a href="{{url_for('views.show_details', symbol=coin.symbol)}}">Details</a>
+      <a href="{{url_for('views.update', symbol=coin.symbol)}}">Plus</a>
+      <a href="{{url_for('views.minus', symbol=coin.symbol)}}">Minus</a>
+      <a href="{{url_for('views.delete', symbol=coin.symbol)}}">Delete</a>
+      {% if total.append(total.pop() + coin.call_price()) %}{% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+  <a href="{{url_for('views.add')}}">Add new coin</a>
+  <tr>
+    <td>Total: </td>
+    <td></td>
+    <td></td>
+    <td>
+      {{total|join('')}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+{% endblock %}

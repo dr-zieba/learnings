@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+    <form action={{url_for('result_page')}} method="post">
+        <h2>Bill form page</h2>
+        {{bill_form.amount.label}} {{bill_form.amount}}
+        <br>
+        {{bill_form.period.label}} {{bill_form.period}}
+        <hr>
+        <p>Flatmate1</p>
+        {{bill_form.flatmate1.label}} {{bill_form.flatmate1}}
+        <br>
+        {{bill_form.days1.label}} {{bill_form.days1}}
+        <br>
+        <hr>
+        <p>Flatmate2</p>
+        {{bill_form.flatmate2.label}} {{bill_form.flatmate2}}
+        <br>
+        {{bill_form.days2.label}} {{bill_form.days2}}
+        <hr>
+        <br>
+        {{bill_form.button}}
+    </form>
+</body>
+</html>

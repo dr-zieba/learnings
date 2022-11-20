@@ -1,0 +1,20 @@
+[
+    {
+        "name": "cloud_user",
+        "id": 1000,
+        "home": "/home/cloud_user",
+        "shell": "/bin/bash"
+    },
+    {
+        "name": "centos",
+        "id": 1001,
+        "home": "/home/centos",
+        "shell": "/bin/bash"
+    },
+    {
+        "name": "ssm-user",
+        "id": 1002,
+        "home": "/home/ssm-user",
+        "shell": "/bin/bash"
+    }
+]

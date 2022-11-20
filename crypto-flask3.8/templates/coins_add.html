@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Tickets{% endblock %}
+
+{% block body %}
+<form action = "" method = "POST">
+         <label for = "symbol">symbol</label><br>
+         <input type = "text" name = "symbol" placeholder = "symbol" /><br>
+
+         <label for = "amount">amount</label><br>
+         <input type = "number" name = "amount" placeholder = "amount" /><br>
+
+         <input type = "submit" value = "Submit" />
+      </form>
+{% endblock %}

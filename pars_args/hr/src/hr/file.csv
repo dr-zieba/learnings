@@ -1,0 +1,4 @@
+name, id, home, shell
+cloud_user,1000,/home/cloud_user,/bin/bash
+centos,1001,/home/centos,/bin/bash
+ssm-user,1002,/home/ssm-user,/bin/bash

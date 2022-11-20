@@ -1,0 +1,21 @@
+<MainWindow>
+    GridLayout:
+        cols: 1
+        padding: 10
+        spacing: 10
+        Image:
+            id: img
+            size_hint_y: 0.8
+        TextInput:
+            id: qwe
+            size_hint_y: 0.1
+        Button:
+            text: 'Search img'
+            size_hint_y: 0.1
+            on_press: root.set_img()
+
+
+<RootWidget>
+    MainWindow:
+        id: main_widget
+        name: 'main_widget'

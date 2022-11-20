@@ -1,0 +1,11 @@
+README.rst
+setup.py
+src/hr/__init__.py
+src/hr/cli.py
+src/hr/export.py
+src/hr/users.py
+src/hr.egg-info/PKG-INFO
+src/hr.egg-info/SOURCES.txt
+src/hr.egg-info/dependency_links.txt
+src/hr.egg-info/entry_points.txt
+src/hr.egg-info/top_level.txt
